@@ -7,6 +7,10 @@
 
 ### 修改main函数中数据库有关配置即可
 
+### 代码生成后存放目录 sourceAutoCode/sourceAutoGeneration/source/
+
+---
+
 ```
 public class AutoGeneration {
 
