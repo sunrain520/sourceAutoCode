@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="PhriskMgmtResultDao">
+
+	<resultMap id="ResultMap"
+		type="PhriskMgmtResult">
+		<result column="mgmt_result_id" property="mgmtResultId" jdbcType="INT" />
+		<result column="apply_id" property="applyId" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="TINYINT" />
+		<result column="solution" property="solution" jdbcType="CHAR" />
+		<result column="score" property="score" jdbcType="DECIMAL" />
+		<result column="quota" property="quota" jdbcType="DECIMAL" />
+		<result column="grade" property="grade" jdbcType="TINYINT" />
+		<result column="result_status" property="resultStatus" jdbcType="TINYINT" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	mgmt_result_id,apply_id,type,solution,score,quota,grade,result_status,remark,create_time,update_time,
+	</sql>
+
+	<select id="idIsExist" parameterType="String"
+		resultType="Integer">
+		SELECT COUNT(0) FROM t_phrisk_mgmt_result WHERE
+		f_apply_id=1
+	</select>
+
+	<insert id="addPhriskMgmtResult" parameterType="java.util.Map">
+		INSERT INTO t_phrisk_mgmt_result SET
+		<if test="aplid!=null">
+			aplid=1,
+		</if>
+		update_time=NOW()
+	</insert>
+
+	<update id="updatePhriskMgmtResult" parameterType="java.util.Map">
+		UPDATE
+		t_phrisk_mgmt_result SET
+		apl_id=1,
+		update_time=NOW()
+		WHERE
+		aplid=1
+	</update>
+
+	<select id="queryPhriskMgmtResult" resultType="java.util.Map">
+		SELECT * FROM t_phrisk_mgmt_result 
+	</select>
+</mapper>

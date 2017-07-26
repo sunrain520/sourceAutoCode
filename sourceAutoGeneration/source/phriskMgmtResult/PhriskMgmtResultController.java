@@ -13,20 +13,20 @@ import com.xiaoniu.dataplatform.utils.EasyStr;
 import org.springframework.beans.factory.annotation.Autowired;
 
  /**
- * ${className } 路由控制器 页面跳转
+ * phriskMgmtResult 路由控制器 页面跳转
  * 
- * @author  	${user}
- * @since   	${.now}
+ * @author  	xn071376
+ * @since   	2017-7-25 23:43:44
  * @version 	v1.0
  */
 @Controller
 @RequestMapping("/temp")
-public class ${className?cap_first}Controller {
+public class PhriskMgmtResultController {
 
-	private static final Logger logger = LoggerFactory.getLogger(${className?cap_first}Controller.class);
+	private static final Logger logger = LoggerFactory.getLogger(PhriskMgmtResultController.class);
 
 	@Autowired
-	${className?cap_first}Service ${className}Service;
+	PhriskMgmtResultService phriskMgmtResultService;
 	
 	
 	/**

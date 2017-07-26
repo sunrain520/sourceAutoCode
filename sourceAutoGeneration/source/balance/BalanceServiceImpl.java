@@ -12,19 +12,19 @@ import com.eagleeye.sdk.Metric;
 import com.xiaoniu.dataplatform.utils.EasyStr;
 
 /**
- * ${className } 
+ * balance 
  * 
- * @author  	${user}
- * @since   	${.now}
+ * @author  	xn071376
+ * @since   	2017-7-26 1:09:51
  * @version 	v1.0
  */
  @Service
-public class ${className?cap_first}ServiceImpl implements ${className?cap_first}Service{
+public class BalanceServiceImpl implements BalanceService{
 	
-	private static final Logger logger = LoggerFactory.getLogger(${className?cap_first}ServiceImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(BalanceServiceImpl.class);
 	
 	@Autowired
-	${className?cap_first}Dao ${className}Dao;
+	BalanceDao balanceDao;
 	
 	public String demo() {
 		long startTS = System.currentTimeMillis();
@@ -44,10 +44,10 @@ public class ${className?cap_first}ServiceImpl implements ${className?cap_first}
 	
 	
     // 查询
-	public List<Map<String, Object>> query${className?cap_first}(${className?cap_first} ${className}){
+	public List<Map<String, Object>> queryBalance(Balance balance){
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		try {
-			list = ${className}Dao.query${className?cap_first}(${className});
+			list = balanceDao.queryBalance(balance);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,11 +56,11 @@ public class ${className?cap_first}ServiceImpl implements ${className?cap_first}
 	}
 
 	// 新增
-	public int add${className?cap_first}(${className?cap_first} ${className}){
+	public int addBalance(Balance balance){
 	  	// TODO Auto-generated method stub
 		int result = 0;
 		try {
-			result = ${className}Dao.add${className?cap_first}(${className});
+			result = balanceDao.addBalance(balance);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,10 +69,10 @@ public class ${className?cap_first}ServiceImpl implements ${className?cap_first}
 	}
 	
 	// 修改
-	public int update${className?cap_first}(${className?cap_first} ${className}){
+	public int updateBalance(Balance balance){
 	  	int result = 0;
 		try {
-			result = ${className}Dao.update${className?cap_first}(${className});
+			result = balanceDao.updateBalance(balance);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -81,10 +81,10 @@ public class ${className?cap_first}ServiceImpl implements ${className?cap_first}
 	}
 	
 	// 删除
-	public int del${className?cap_first}(${className?cap_first} ${className}){
+	public int delBalance(Balance balance){
 		int result = 0;
 		try {
-			result = ${className}Dao.del${className?cap_first}(${className});
+			result = balanceDao.delBalance(balance);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

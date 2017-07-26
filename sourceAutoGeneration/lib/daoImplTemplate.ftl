@@ -11,8 +11,8 @@ import java.util.Map;
 public class ${className?cap_first}DaoImpl implements ${className?cap_first}Dao{
 	
 	
-    //分页查询
-	public List<Map<String,Object>> queryPageList(${className?cap_first} ${className}){
+    //查询
+	public List<Map<String,Object>> query${className?cap_first}(${className?cap_first} ${className}){
 		// TODO Auto-generated method stub
 		return null;	  
 	}

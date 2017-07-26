@@ -1,5 +1,6 @@
 
 import java.io.Serializable;
+import java.math.BigInteger;
 
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
@@ -29,7 +30,7 @@ public class ${className?cap_first} implements Serializable{
 		return ${column.columnName};
     }
     
-	public void set${column.columnName?cap_first}(String ${column.columnName}) {
+	public void set${column.columnName?cap_first}(${column.type} ${column.columnName}) {
 		this.${column.columnName} = ${column.columnName};
     }
         

@@ -10,16 +10,16 @@ import java.util.Map;
  */
 public interface ${className?cap_first}Dao {
 
-    // 分页查询
-	List<Map<String,Object>> queryPageList(${className?cap_first} ${className});
+    // 查询
+	List<Map<String, Object>> query${className?cap_first}(${className?cap_first} ${className}) throws Exception;
 
 	// 新增
-	int ${className}Add(${className?cap_first} ${className});
+	int add${className?cap_first}(${className?cap_first} ${className}) throws Exception;
 	
 	// 修改
-	int ${className}Update(${className?cap_first} ${className});
+	int update${className?cap_first}(${className?cap_first} ${className}) throws Exception;
 	
 	// 删除
-	int ${className}Del(${className?cap_first} ${className});
+	int del${className?cap_first}(${className?cap_first} ${className}) throws Exception;
 
 }
