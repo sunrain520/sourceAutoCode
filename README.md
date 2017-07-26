@@ -1,12 +1,13 @@
 # sourceAutoCode
-java 代码成器  自动生成代码
+## java 代码成器  自动生成代码
 
-模版路径位于lib文件夹下
+### 模版路径位于lib文件夹下
 
-需要导入lib下两个jar包
+### 需要导入lib下两个jar包
 
-修改main函数中数据库有关配置即可
+### 修改main函数中数据库有关配置即可
 
+```
 public class AutoGeneration {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException, TemplateException {
@@ -36,3 +37,4 @@ public class AutoGeneration {
 	}
 
 }
+```
