@@ -13,15 +13,24 @@ import org.springframework.stereotype.Service;
 public interface ${className?cap_first}Service {
 
     // 查询
-	List<Map<String, Object>> query${className?cap_first}(${className?cap_first} ${className}) ;
+	public List<Map<String, Object>> list${className?cap_first}(${className?cap_first} ${className}) ;
 
 	// 新增
-	int add${className?cap_first}(${className?cap_first} ${className});
+	public int add${className?cap_first}(${className?cap_first} ${className});
 	
 	// 修改
-	int update${className?cap_first}(${className?cap_first} ${className});
+	public int update${className?cap_first}(${className?cap_first} ${className});
 	
 	// 删除
-	int del${className?cap_first}(${className?cap_first} ${className});
+	public int del${className?cap_first}(${className?cap_first} ${className});
 
+	//
+	public List<${className?cap_first}> query${className?cap_first}List(${className?cap_first} ${className});
+	
+	// 批量插入
+	public void insertBatch${className?cap_first}(List<${className?cap_first}> ${className}List);
+
+ 	// 查询总数
+	public int queryCount(${className?cap_first} ${className});
+	
 }

@@ -26,7 +26,7 @@ public class ${className?cap_first}Controller {
 	private static final Logger logger = LoggerFactory.getLogger(${className?cap_first}Controller.class);
 
 	@Autowired
-	${className?cap_first}Service ${className}Service;
+	private ${className?cap_first}Service ${className}Service;
 	
 	
 	/**

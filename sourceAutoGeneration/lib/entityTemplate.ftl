@@ -1,6 +1,11 @@
 
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.lang.String;
+import java.lang.Double;
+import java.lang.Integer;
 
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
@@ -25,7 +30,6 @@ public class ${className?cap_first} implements Serializable{
 
 
 	<#list columnMap as column>
-	
 	public ${column.type} get${column.columnName?cap_first}() {
 		return ${column.columnName};
     }

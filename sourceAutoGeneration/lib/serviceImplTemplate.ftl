@@ -28,7 +28,6 @@ public class ${className?cap_first}ServiceImpl implements ${className?cap_first}
 	
 	public String demo() {
 		long startTS = System.currentTimeMillis();
-
 		try {
 			logger.info("success");
 		} catch (Exception e) {
@@ -44,10 +43,10 @@ public class ${className?cap_first}ServiceImpl implements ${className?cap_first}
 	
 	
     // 查询
-	public List<Map<String, Object>> query${className?cap_first}(${className?cap_first} ${className}){
+	public List<Map<String, Object>> list${className?cap_first}(${className?cap_first} ${className}){
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		try {
-			list = ${className}Dao.query${className?cap_first}(${className});
+			list = ${className}Dao.list${className?cap_first}(${className});
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -91,5 +90,41 @@ public class ${className?cap_first}ServiceImpl implements ${className?cap_first}
 		}
 		return result;
 	}
+
+//
+	public List<${className?cap_first}> query${className?cap_first}List(${className?cap_first} ${className}) {
+		List<${className?cap_first}> list = new ArrayList<${className?cap_first}>();
+		try {
+			list = ${className}Dao.query${className?cap_first}(${className});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	// 批量插入
+	public void insertBatch${className?cap_first}(List<${className?cap_first}> ${className}List) {
+		try {
+			${className}Dao.insertBatch${className?cap_first}(List<${className?cap_first}> ${className}List);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+ 	// 查询总数
+	public int queryCount(${className?cap_first} ${className}) {
+		int result = 0;
+		try {
+			result = ${className}Dao.queryCount${className?cap_first}(${className});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+
 
 }

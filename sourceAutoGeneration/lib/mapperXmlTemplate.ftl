@@ -12,34 +12,53 @@
 		</#list>
 	</resultMap>
 
+	<!-- 字段 -->
 	<sql id="Base_Column_List">
-	<#list columnMap as column>${column.remark},</#list>
+		<#list columnMap as column>${column.remark}<#if column_has_next>,</#if></#list>
 	</sql>
 
 	<select id="idIsExist" parameterType="String"
 		resultType="Integer" >
 		SELECT COUNT(0) FROM ${tableName} WHERE
-		f_apply_id = 1
+		f_apply_id = ${r"#{"}f_apply_id${r"}"}
 	</select>
 
 	<insert id="add${className?cap_first}" parameterType="java.util.Map" >
 		INSERT INTO ${tableName} SET
-		<if test="aplid != null">
-			aplid = 1,
+		<#list columnMap as column>
+		<if test="${column.columnName} != null">
+			${column.remark} = ${r"#{"}${column.columnName}${r"}"},
 		</if>
-		update_time = NOW()
+		</#list>
+		create_time = NOW()
 	</insert>
 
 	<update id="update${className?cap_first}" parameterType="java.util.Map">
 		UPDATE
 		${tableName} SET
-		apl_id = 1,
-		update_time = NOW()
+		<#list columnMap as column>
+		<if test="${column.columnName} != null">
+			${column.remark} = ${r"#{"}${column.columnName}${r"}"},
+		</if>
+		</#list>
+		create_time = NOW()
 		WHERE
-		aplid = 1
+		f_apply_id = ${r"#{"}f_apply_id${r"}"}
 	</update>
 
 	<select id="query${className?cap_first}" parameterType="java.util.Map" resultType="java.util.Map" >
-		SELECT * FROM ${tableName} 
+		SELECT <include refid="Field"></include> FROM ${tableName} 
 	</select>
+	
+	<insert id="insertBatch${className?cap_first}" parameterType="java.util.List">
+		insert into
+		t_ph_risk_rule_result
+		(<include refid="Field"></include>)
+		values
+		<foreach collection="list" index="index" item="item"
+			separator=",">
+			(<#list columnMap as column>item.${column.columnName}<#if column_has_next>,</#if></#list>)
+		</foreach>
+	</insert>
+	
 </mapper>
